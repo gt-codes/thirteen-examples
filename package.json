@@ -10,6 +10,7 @@
 		"with-auth": "turbo run dev --filter=with-auth",
 		"with-layouts": "turbo run dev --filter=with-layouts",
 		"with-mutations": "turbo run dev --filter=with-mutations",
+		"with-mutations-layouts": "turbo run dev --filter=with-mutations-layouts",
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
 		"lint": "turbo run lint",
