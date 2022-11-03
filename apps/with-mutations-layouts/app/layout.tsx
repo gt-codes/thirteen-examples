@@ -3,7 +3,14 @@ import './globals.css';
 import { supabase } from './utils/supabase';
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-	const { data } = await supabase.from('users').select('*');
+	const { data } = await supabase.from('messages').select('*');
+
+	const authors = Object.entries(
+		data?.reduce((acc, { author }) => {
+			acc[author] = (acc[author] || 0) + 1;
+			return acc;
+		}, {})
+	).sort(([, a], [, b]) => b - a);
 
 	return (
 		<html lang="en">
@@ -15,9 +22,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 			<body>
 				<nav>
 					<ul style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-						{data?.map((user) => (
-							<Link href={`/${user.id}/messages`} key={user.id}>
-								{user.id}
+						{authors.map(([author]) => (
+							<Link key={author} href={`/${author}/messages`}>
+								{author}
 							</Link>
 						))}
 					</ul>
