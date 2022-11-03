@@ -8,6 +8,7 @@
 	],
 	"scripts": {
 		"with-auth": "turbo run dev --filter=with-auth",
+		"with-mutations": "turbo run dev --filter=with-mutations",
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
 		"lint": "turbo run lint",
