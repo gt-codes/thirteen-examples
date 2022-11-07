@@ -1,0 +1,3 @@
+{
+	"typescript.tsdk": "./apps/with-mutations-layouts/node_modules/typescript/lib"
+}
